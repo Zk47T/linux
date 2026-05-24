@@ -396,7 +396,7 @@ ENTRY(cpu_arm920_do_resume)
 ENDPROC(cpu_arm920_do_resume)
 #endif
 
-	.type	__arm920_setup, #function
+	.type __arm920_setup, %function
 __arm920_setup:
 	mov	r0, #0
 	mcr	p15, 0, r0, c7, c7		@ invalidate I,D caches on v4
@@ -418,7 +418,7 @@ __arm920_setup:
 	 * ..11 0001 ..11 0101
 	 * 
 	 */
-	.type	arm920_crval, #object
+	.type arm920_crval, %object
 arm920_crval:
 	crval	clear=0x00003f3f, mmuset=0x00003135, ucset=0x00001130
 
@@ -434,9 +434,9 @@ arm920_crval:
 
 	.align
 
-	.section ".proc.info.init", #alloc
+	.section ".proc.info.init", "a"
 
-	.type	__arm920_proc_info,#object
+	.type __arm920_proc_info, %object
 __arm920_proc_info:
 	.long	0x41009200
 	.long	0xff00fff0

@@ -157,6 +157,6 @@ ENDPROC(cpu_v7_set_pte_ext)
 	 *   01    0 110       0011 1100 .111 1101 < we want
 	 */
 	.align	2
-	.type	v7_crval, #object
+	.type v7_crval, %object
 v7_crval:
 	crval	clear=0x2120c302, mmuset=0x10c03c7d, ucset=0x00c01c7c

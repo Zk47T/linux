@@ -402,7 +402,7 @@ ENTRY(cpu_arm1022_set_pte_ext)
 #endif /* CONFIG_MMU */
 	ret	lr
 
-	.type	__arm1022_setup, #function
+	.type __arm1022_setup, %function
 __arm1022_setup:
 	mov	r0, #0
 	mcr	p15, 0, r0, c7, c7		@ invalidate I,D caches on v4
@@ -427,7 +427,7 @@ __arm1022_setup:
 	 * .011 1001 ..11 0101
 	 * 
 	 */
-	.type	arm1022_crval, #object
+	.type arm1022_crval, %object
 arm1022_crval:
 	crval	clear=0x00007f3f, mmuset=0x00003935, ucset=0x00001930
 
@@ -443,9 +443,9 @@ arm1022_crval:
 
 	.align
 
-	.section ".proc.info.init", #alloc
+	.section ".proc.info.init", "a"
 
-	.type	__arm1022_proc_info,#object
+	.type __arm1022_proc_info, %object
 __arm1022_proc_info:
 	.long	0x4105a220			@ ARM 1022E (v5TE)
 	.long	0xff0ffff0

@@ -156,7 +156,7 @@ ENTRY(cpu_sa110_set_pte_ext)
 #endif
 	ret	lr
 
-	.type	__sa110_setup, #function
+	.type __sa110_setup, %function
 __sa110_setup:
 	mov	r10, #0
 	mcr	p15, 0, r10, c7, c7		@ invalidate I,D caches on v4
@@ -179,7 +179,7 @@ __sa110_setup:
 	 * ..01 0001 ..11 1101
 	 * 
 	 */
-	.type	sa110_crval, #object
+	.type sa110_crval, %object
 sa110_crval:
 	crval	clear=0x00003f3f, mmuset=0x0000113d, ucset=0x00001130
 
@@ -196,9 +196,9 @@ sa110_crval:
 
 	.align
 
-	.section ".proc.info.init", #alloc
+	.section ".proc.info.init", "a"
 
-	.type	__sa110_proc_info,#object
+	.type __sa110_proc_info, %object
 __sa110_proc_info:
 	.long	0x4401a100
 	.long	0xfffffff0

@@ -185,6 +185,6 @@ mpidr_hash_ptr:
 
 	.data
 	.align	2
-	.type	sleep_save_sp, #object
+	.type sleep_save_sp, %object
 ENTRY(sleep_save_sp)
 	.space	SLEEP_SAVE_SP_SZ		@ struct sleep_save_sp

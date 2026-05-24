@@ -409,7 +409,7 @@ ENTRY(cpu_arm1020e_set_pte_ext)
 #endif /* CONFIG_MMU */
 	ret	lr
 
-	.type	__arm1020e_setup, #function
+	.type __arm1020e_setup, %function
 __arm1020e_setup:
 	mov	r0, #0
 	mcr	p15, 0, r0, c7, c7		@ invalidate I,D caches on v4
@@ -433,7 +433,7 @@ __arm1020e_setup:
 	 * .RVI ZFRS BLDP WCAM
 	 * .011 1001 ..11 0101
 	 */
-	.type	arm1020e_crval, #object
+	.type arm1020e_crval, %object
 arm1020e_crval:
 	crval	clear=0x00007f3f, mmuset=0x00003935, ucset=0x00001930
 
@@ -449,9 +449,9 @@ arm1020e_crval:
 
 	.align
 
-	.section ".proc.info.init", #alloc
+	.section ".proc.info.init", "a"
 
-	.type	__arm1020e_proc_info,#object
+	.type __arm1020e_proc_info, %object
 __arm1020e_proc_info:
 	.long	0x4105a200			@ ARM 1020TE (Architecture v5TE)
 	.long	0xff0ffff0

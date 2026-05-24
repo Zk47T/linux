@@ -372,7 +372,7 @@ ENTRY(cpu_mohawk_do_resume)
 ENDPROC(cpu_mohawk_do_resume)
 #endif
 
-	.type	__mohawk_setup, #function
+	.type __mohawk_setup, %function
 __mohawk_setup:
 	mov	r0, #0
 	mcr	p15, 0, r0, c7, c7		@ invalidate I,D caches
@@ -399,7 +399,7 @@ __mohawk_setup:
 	 * .011 1001 ..00 0101
 	 *
 	 */
-	.type	mohawk_crval, #object
+	.type mohawk_crval, %object
 mohawk_crval:
 	crval	clear=0x00007f3f, mmuset=0x00003905, ucset=0x00001134
 
@@ -416,9 +416,9 @@ mohawk_crval:
 
 	.align
 
-	.section ".proc.info.init", #alloc
+	.section ".proc.info.init", "a"
 
-	.type	__88sv331x_proc_info,#object
+	.type __88sv331x_proc_info, %object
 __88sv331x_proc_info:
 	.long	0x56158000			@ Marvell 88SV331x (MOHAWK)
 	.long	0xfffff000

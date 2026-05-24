@@ -527,7 +527,7 @@ ENTRY(cpu_feroceon_do_resume)
 ENDPROC(cpu_feroceon_do_resume)
 #endif
 
-	.type	__feroceon_setup, #function
+	.type __feroceon_setup, %function
 __feroceon_setup:
 	mov	r0, #0
 	mcr	p15, 0, r0, c7, c7		@ invalidate I,D caches on v4
@@ -551,7 +551,7 @@ __feroceon_setup:
 	 * .011 .001 ..11 0101
 	 *
 	 */
-	.type	feroceon_crval, #object
+	.type feroceon_crval, %object
 feroceon_crval:
 	crval	clear=0x0000773f, mmuset=0x00003135, ucset=0x00001134
 
@@ -571,10 +571,10 @@ feroceon_crval:
 
 	.align
 
-	.section ".proc.info.init", #alloc
+	.section ".proc.info.init", "a"
 
 .macro feroceon_proc_info name:req, cpu_val:req, cpu_mask:req, cpu_name:req, cache:req
-	.type	__\name\()_proc_info,#object
+	.type __\name\()_proc_info, %object
 __\name\()_proc_info:
 	.long	\cpu_val
 	.long	\cpu_mask

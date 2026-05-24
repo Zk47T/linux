@@ -130,7 +130,7 @@ ENTRY(cpu_fa526_set_pte_ext)
 #endif
 	ret	lr
 
-	.type	__fa526_setup, #function
+	.type __fa526_setup, %function
 __fa526_setup:
 	/* On return of this routine, r0 must carry correct flags for CFG register */
 	mov	r0, #0
@@ -165,8 +165,8 @@ __fa526_setup:
 	 * ..11 1001 .111 1101
 	 *
 	 */
-	.type	fa526_cr1_clear, #object
-	.type	fa526_cr1_set, #object
+	.type fa526_cr1_clear, %object
+	.type fa526_cr1_set, %object
 fa526_cr1_clear:
 	.word	0x3f3f
 fa526_cr1_set:
@@ -185,9 +185,9 @@ fa526_cr1_set:
 
 	.align
 
-	.section ".proc.info.init", #alloc
+	.section ".proc.info.init", "a"
 
-	.type	__fa526_proc_info,#object
+	.type __fa526_proc_info, %object
 __fa526_proc_info:
 	.long	0x66015261
 	.long	0xff01fff1

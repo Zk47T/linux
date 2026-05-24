@@ -322,7 +322,7 @@ ENTRY(cpu_arm946_dcache_clean_area)
 	mcr	p15, 0, r0, c7, c10, 4		@ drain WB
 	ret	lr
 
-	.type	__arm946_setup, #function
+	.type __arm946_setup, %function
 __arm946_setup:
 	mov	r0, #0
 	mcr	p15, 0, r0, c7, c5, 0		@ invalidate I cache
@@ -395,8 +395,8 @@ __arm946_setup:
 
 	.align
 
-	.section ".proc.info.init", #alloc
-	.type	__arm946_proc_info,#object
+	.section ".proc.info.init", "a"
+	.type __arm946_proc_info, %object
 __arm946_proc_info:
 	.long	0x41009460
 	.long	0xff00fff0

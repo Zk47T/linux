@@ -411,7 +411,7 @@ ENTRY(cpu_arm926_do_resume)
 ENDPROC(cpu_arm926_do_resume)
 #endif
 
-	.type	__arm926_setup, #function
+	.type __arm926_setup, %function
 __arm926_setup:
 	mov	r0, #0
 	mcr	p15, 0, r0, c7, c7		@ invalidate I,D caches on v4
@@ -443,7 +443,7 @@ __arm926_setup:
 	 * .011 0001 ..11 0101
 	 * 
 	 */
-	.type	arm926_crval, #object
+	.type arm926_crval, %object
 arm926_crval:
 	crval	clear=0x00007f3f, mmuset=0x00003135, ucset=0x00001134
 
@@ -460,9 +460,9 @@ arm926_crval:
 
 	.align
 
-	.section ".proc.info.init", #alloc
+	.section ".proc.info.init", "a"
 
-	.type	__arm926_proc_info,#object
+	.type __arm926_proc_info, %object
 __arm926_proc_info:
 	.long	0x41069260			@ ARM926EJ-S (v5TEJ)
 	.long	0xff0ffff0

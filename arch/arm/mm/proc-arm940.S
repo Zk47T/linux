@@ -269,7 +269,7 @@ ENDPROC(arm940_dma_unmap_area)
 	@ define struct cpu_cache_fns (see <asm/cacheflush.h> and proc-macros.S)
 	define_cache_functions arm940
 
-	.type	__arm940_setup, #function
+	.type __arm940_setup, %function
 __arm940_setup:
 	mov	r0, #0
 	mcr	p15, 0, r0, c7, c5, 0		@ invalidate I cache
@@ -340,9 +340,9 @@ __arm940_setup:
 
 	.align
 
-	.section ".proc.info.init", #alloc
+	.section ".proc.info.init", "a"
 
-	.type	__arm940_proc_info,#object
+	.type __arm940_proc_info, %object
 __arm940_proc_info:
 	.long	0x41009400
 	.long	0xff00fff0

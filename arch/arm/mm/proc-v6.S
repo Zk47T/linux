@@ -246,7 +246,7 @@ __v6_setup:
 	 * rrrr rrrx xxx0 0101 xxxx xxxx x111 xxxx < forced
 	 *         0 110       0011 1.00 .111 1101 < we want
 	 */
-	.type	v6_crval, #object
+	.type v6_crval, %object
 v6_crval:
 	crval	clear=0x01e0fb7f, mmuset=0x00c0387d, ucset=0x00c0187c
 
@@ -261,12 +261,12 @@ v6_crval:
 	string	cpu_elf_name, "v6"
 	.align
 
-	.section ".proc.info.init", #alloc
+	.section ".proc.info.init", "a"
 
 	/*
 	 * Match any ARMv6 processor core.
 	 */
-	.type	__v6_proc_info, #object
+	.type __v6_proc_info, %object
 __v6_proc_info:
 	.long	0x0007b000
 	.long	0x0007f000

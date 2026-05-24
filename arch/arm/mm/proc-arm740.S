@@ -56,7 +56,7 @@ ENTRY(cpu_arm740_reset)
 ENDPROC(cpu_arm740_reset)
 	.popsection
 
-	.type	__arm740_setup, #function
+	.type __arm740_setup, %function
 __arm740_setup:
 	mov	r0, #0
 	mcr	p15, 0, r0, c7, c0, 0		@ invalidate caches
@@ -128,8 +128,8 @@ __arm740_setup:
 
 	.align
 
-	.section ".proc.info.init", #alloc
-	.type	__arm740_proc_info,#object
+	.section ".proc.info.init", "a"
+	.type __arm740_proc_info, %object
 __arm740_proc_info:
 	.long	0x41807400
 	.long	0xfffffff0

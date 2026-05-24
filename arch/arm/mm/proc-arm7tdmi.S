@@ -47,7 +47,7 @@ ENTRY(cpu_arm7tdmi_reset)
 ENDPROC(cpu_arm7tdmi_reset)
 		.popsection
 
-		.type	__arm7tdmi_setup, #function
+		.type __arm7tdmi_setup, %function
 __arm7tdmi_setup:
 		ret	lr
 		.size	__arm7tdmi_setup, . - __arm7tdmi_setup
@@ -72,11 +72,11 @@ __arm7tdmi_setup:
 
 		.align
 
-		.section ".proc.info.init", #alloc
+		.section ".proc.info.init", "a"
 
 .macro arm7tdmi_proc_info name:req, cpu_val:req, cpu_mask:req, cpu_name:req, \
 	extra_hwcaps=0
-		.type	__\name\()_proc_info, #object
+		.type __\name\()_proc_info, %object
 __\name\()_proc_info:
 		.long	\cpu_val
 		.long	\cpu_mask

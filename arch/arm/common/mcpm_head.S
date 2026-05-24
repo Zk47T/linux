@@ -211,19 +211,19 @@ ENDPROC(mcpm_entry_point)
 	.bss
 
 	.align	CACHE_WRITEBACK_ORDER
-	.type	first_man_locks, #object
+	.type first_man_locks, %object
 first_man_locks:
 	.space	VLOCK_SIZE * MAX_NR_CLUSTERS
 	.align	CACHE_WRITEBACK_ORDER
 
-	.type	mcpm_entry_vectors, #object
+	.type mcpm_entry_vectors, %object
 ENTRY(mcpm_entry_vectors)
 	.space	4 * MAX_NR_CLUSTERS * MAX_CPUS_PER_CLUSTER
 
-	.type	mcpm_entry_early_pokes, #object
+	.type mcpm_entry_early_pokes, %object
 ENTRY(mcpm_entry_early_pokes)
 	.space	8 * MAX_NR_CLUSTERS * MAX_CPUS_PER_CLUSTER
 
-	.type	mcpm_power_up_setup_phys, #object
+	.type mcpm_power_up_setup_phys, %object
 ENTRY(mcpm_power_up_setup_phys)
 	.space  4		@ set by mcpm_sync_init()

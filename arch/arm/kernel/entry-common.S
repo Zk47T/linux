@@ -308,7 +308,7 @@ __sys_trace_return:
 
 	.align	5
 #ifdef CONFIG_ALIGNMENT_TRAP
-	.type	__cr_alignment, #object
+	.type __cr_alignment, %object
 __cr_alignment:
 	.word	cr_alignment
 #endif
@@ -316,7 +316,7 @@ __cr_alignment:
 
 	.macro	syscall_table_start, sym
 	.equ	__sys_nr, 0
-	.type	\sym, #object
+	.type \sym, %object
 ENTRY(\sym)
 	.endm
 

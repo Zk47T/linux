@@ -644,7 +644,7 @@ __v7_setup_stack:
 	string	cpu_elf_name, "v7"
 	.align
 
-	.section ".proc.info.init", #alloc
+	.section ".proc.info.init", "a"
 
 	/*
 	 * Standard v7 proc info content
@@ -672,7 +672,7 @@ __v7_setup_stack:
 	/*
 	 * ARM Ltd. Cortex A5 processor.
 	 */
-	.type   __v7_ca5mp_proc_info, #object
+	.type __v7_ca5mp_proc_info, %object
 __v7_ca5mp_proc_info:
 	.long	0x410fc050
 	.long	0xff0ffff0
@@ -682,7 +682,7 @@ __v7_ca5mp_proc_info:
 	/*
 	 * ARM Ltd. Cortex A9 processor.
 	 */
-	.type   __v7_ca9mp_proc_info, #object
+	.type __v7_ca9mp_proc_info, %object
 __v7_ca9mp_proc_info:
 	.long	0x410fc090
 	.long	0xff0ffff0
@@ -692,7 +692,7 @@ __v7_ca9mp_proc_info:
 	/*
 	 * ARM Ltd. Cortex A8 processor.
 	 */
-	.type	__v7_ca8_proc_info, #object
+	.type __v7_ca8_proc_info, %object
 __v7_ca8_proc_info:
 	.long	0x410fc080
 	.long	0xff0ffff0
@@ -705,7 +705,7 @@ __v7_ca8_proc_info:
 	 * Marvell PJ4B processor.
 	 */
 #ifdef CONFIG_CPU_PJ4B
-	.type   __v7_pj4b_proc_info, #object
+	.type __v7_pj4b_proc_info, %object
 __v7_pj4b_proc_info:
 	.long	0x560f5800
 	.long	0xff0fff00
@@ -716,7 +716,7 @@ __v7_pj4b_proc_info:
 	/*
 	 * ARM Ltd. Cortex R7 processor.
 	 */
-	.type	__v7_cr7mp_proc_info, #object
+	.type __v7_cr7mp_proc_info, %object
 __v7_cr7mp_proc_info:
 	.long	0x410fc170
 	.long	0xff0ffff0
@@ -726,7 +726,7 @@ __v7_cr7mp_proc_info:
 	/*
 	 * ARM Ltd. Cortex R8 processor.
 	 */
-	.type	__v7_cr8mp_proc_info, #object
+	.type __v7_cr8mp_proc_info, %object
 __v7_cr8mp_proc_info:
 	.long	0x410fc180
 	.long	0xff0ffff0
@@ -736,7 +736,7 @@ __v7_cr8mp_proc_info:
 	/*
 	 * ARM Ltd. Cortex A7 processor.
 	 */
-	.type	__v7_ca7mp_proc_info, #object
+	.type __v7_ca7mp_proc_info, %object
 __v7_ca7mp_proc_info:
 	.long	0x410fc070
 	.long	0xff0ffff0
@@ -746,7 +746,7 @@ __v7_ca7mp_proc_info:
 	/*
 	 * ARM Ltd. Cortex A12 processor.
 	 */
-	.type	__v7_ca12mp_proc_info, #object
+	.type __v7_ca12mp_proc_info, %object
 __v7_ca12mp_proc_info:
 	.long	0x410fc0d0
 	.long	0xff0ffff0
@@ -756,7 +756,7 @@ __v7_ca12mp_proc_info:
 	/*
 	 * ARM Ltd. Cortex A15 processor.
 	 */
-	.type	__v7_ca15mp_proc_info, #object
+	.type __v7_ca15mp_proc_info, %object
 __v7_ca15mp_proc_info:
 	.long	0x410fc0f0
 	.long	0xff0ffff0
@@ -766,7 +766,7 @@ __v7_ca15mp_proc_info:
 	/*
 	 * Broadcom Corporation Brahma-B15 processor.
 	 */
-	.type	__v7_b15mp_proc_info, #object
+	.type __v7_b15mp_proc_info, %object
 __v7_b15mp_proc_info:
 	.long	0x420f00f0
 	.long	0xff0ffff0
@@ -776,7 +776,7 @@ __v7_b15mp_proc_info:
 	/*
 	 * ARM Ltd. Cortex A17 processor.
 	 */
-	.type	__v7_ca17mp_proc_info, #object
+	.type __v7_ca17mp_proc_info, %object
 __v7_ca17mp_proc_info:
 	.long	0x410fc0e0
 	.long	0xff0ffff0
@@ -784,7 +784,7 @@ __v7_ca17mp_proc_info:
 	.size	__v7_ca17mp_proc_info, . - __v7_ca17mp_proc_info
 
 	/* ARM Ltd. Cortex A73 processor */
-	.type	__v7_ca73_proc_info, #object
+	.type __v7_ca73_proc_info, %object
 __v7_ca73_proc_info:
 	.long	0x410fd090
 	.long	0xff0ffff0
@@ -792,7 +792,7 @@ __v7_ca73_proc_info:
 	.size	__v7_ca73_proc_info, . - __v7_ca73_proc_info
 
 	/* ARM Ltd. Cortex A75 processor */
-	.type	__v7_ca75_proc_info, #object
+	.type __v7_ca75_proc_info, %object
 __v7_ca75_proc_info:
 	.long	0x410fd0a0
 	.long	0xff0ffff0
@@ -802,7 +802,7 @@ __v7_ca75_proc_info:
 	/*
 	 * Qualcomm Inc. Krait processors.
 	 */
-	.type	__krait_proc_info, #object
+	.type __krait_proc_info, %object
 __krait_proc_info:
 	.long	0x510f0400		@ Required ID value
 	.long	0xff0ffc00		@ Mask for ID
@@ -818,7 +818,7 @@ __krait_proc_info:
 	/*
 	 * Match any ARMv7 processor core.
 	 */
-	.type	__v7_proc_info, #object
+	.type __v7_proc_info, %object
 __v7_proc_info:
 	.long	0x000f0000		@ Required ID value
 	.long	0x000f0000		@ Mask for ID

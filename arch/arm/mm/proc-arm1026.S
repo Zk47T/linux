@@ -391,7 +391,7 @@ ENTRY(cpu_arm1026_set_pte_ext)
 #endif /* CONFIG_MMU */
 	ret	lr
 
-	.type	__arm1026_setup, #function
+	.type __arm1026_setup, %function
 __arm1026_setup:
 	mov	r0, #0
 	mcr	p15, 0, r0, c7, c7		@ invalidate I,D caches on v4
@@ -421,7 +421,7 @@ __arm1026_setup:
 	 * .011 1001 ..11 0101
 	 * 
 	 */
-	.type	arm1026_crval, #object
+	.type arm1026_crval, %object
 arm1026_crval:
 	crval	clear=0x00007f3f, mmuset=0x00003935, ucset=0x00001934
 
@@ -437,9 +437,9 @@ arm1026_crval:
 	string	cpu_arm1026_name, "ARM1026EJ-S"
 	.align
 
-	.section ".proc.info.init", #alloc
+	.section ".proc.info.init", "a"
 
-	.type	__arm1026_proc_info,#object
+	.type __arm1026_proc_info, %object
 __arm1026_proc_info:
 	.long	0x4106a260			@ ARM 1026EJ-S (v5TEJ)
 	.long	0xff0ffff0

@@ -93,7 +93,7 @@ ENTRY(cpu_cm7_proc_fin)
 	ret	lr
 ENDPROC(cpu_cm7_proc_fin)
 
-	.section ".init.text", #alloc, #execinstr
+	.section ".init.text", "ax"
 
 __v7m_cm7_setup:
 	mov	r8, #(V7M_SCB_CCR_DC | V7M_SCB_CCR_IC| V7M_SCB_CCR_BP)
@@ -177,7 +177,7 @@ ENDPROC(__v7m_setup)
 	string cpu_elf_name "v7m"
 	string cpu_v7m_name "ARMv7-M"
 
-	.section ".proc.info.init", #alloc
+	.section ".proc.info.init", "a"
 
 .macro __v7m_proc name, initfunc, cache_fns = nop_cache_fns, hwcaps = 0,  proc_fns = v7m_processor_functions
 	.long	0			/* proc_info_list.__cpu_mm_mmu_flags */
@@ -196,7 +196,7 @@ ENDPROC(__v7m_setup)
 	/*
 	 * Match ARM Cortex-M7 processor.
 	 */
-	.type	__v7m_cm7_proc_info, #object
+	.type __v7m_cm7_proc_info, %object
 __v7m_cm7_proc_info:
 	.long	0x410fc270		/* ARM Cortex-M7 0xC27 */
 	.long	0xff0ffff0		/* Mask off revision, patch release */
@@ -206,7 +206,7 @@ __v7m_cm7_proc_info:
 	/*
 	 * Match ARM Cortex-M4 processor.
 	 */
-	.type	__v7m_cm4_proc_info, #object
+	.type __v7m_cm4_proc_info, %object
 __v7m_cm4_proc_info:
 	.long	0x410fc240		/* ARM Cortex-M4 0xC24 */
 	.long	0xff0ffff0		/* Mask off revision, patch release */
@@ -216,7 +216,7 @@ __v7m_cm4_proc_info:
 	/*
 	 * Match ARM Cortex-M3 processor.
 	 */
-	.type	__v7m_cm3_proc_info, #object
+	.type __v7m_cm3_proc_info, %object
 __v7m_cm3_proc_info:
 	.long	0x410fc230		/* ARM Cortex-M3 0xC23 */
 	.long	0xff0ffff0		/* Mask off revision, patch release */
@@ -226,7 +226,7 @@ __v7m_cm3_proc_info:
 	/*
 	 * Match any ARMv7-M processor core.
 	 */
-	.type	__v7m_proc_info, #object
+	.type __v7m_proc_info, %object
 __v7m_proc_info:
 	.long	0x000f0000		@ Required ID value
 	.long	0x000f0000		@ Mask for ID

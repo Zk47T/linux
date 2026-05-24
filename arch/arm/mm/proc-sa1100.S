@@ -195,7 +195,7 @@ ENTRY(cpu_sa1100_do_resume)
 ENDPROC(cpu_sa1100_do_resume)
 #endif
 
-	.type	__sa1100_setup, #function
+	.type __sa1100_setup, %function
 __sa1100_setup:
 	mov	r0, #0
 	mcr	p15, 0, r0, c7, c7		@ invalidate I,D caches on v4
@@ -217,7 +217,7 @@ __sa1100_setup:
 	 * ..11 0001 ..11 1101
 	 * 
 	 */
-	.type	sa1100_crval, #object
+	.type sa1100_crval, %object
 sa1100_crval:
 	crval	clear=0x00003f3f, mmuset=0x0000313d, ucset=0x00001130
 
@@ -239,10 +239,10 @@ sa1100_crval:
 
 	.align
 
-	.section ".proc.info.init", #alloc
+	.section ".proc.info.init", "a"
 
 .macro sa1100_proc_info name:req, cpu_val:req, cpu_mask:req, cpu_name:req
-	.type	__\name\()_proc_info,#object
+	.type __\name\()_proc_info, %object
 __\name\()_proc_info:
 	.long	\cpu_val
 	.long	\cpu_mask

@@ -427,7 +427,7 @@ ENTRY(cpu_arm1020_set_pte_ext)
 #endif /* CONFIG_MMU */
 	ret	lr
 
-	.type	__arm1020_setup, #function
+	.type __arm1020_setup, %function
 __arm1020_setup:
 	mov	r0, #0
 	mcr	p15, 0, r0, c7, c7		@ invalidate I,D caches on v4
@@ -452,7 +452,7 @@ __arm1020_setup:
 	 * .RVI ZFRS BLDP WCAM
 	 * .011 1001 ..11 0101
 	 */
-	.type	arm1020_crval, #object
+	.type arm1020_crval, %object
 arm1020_crval:
 	crval	clear=0x0000593f, mmuset=0x00003935, ucset=0x00001930
 
@@ -466,7 +466,7 @@ arm1020_crval:
 	string	cpu_arch_name, "armv5t"
 	string	cpu_elf_name, "v5"
 
-	.type	cpu_arm1020_name, #object
+	.type cpu_arm1020_name, %object
 cpu_arm1020_name:
 	.ascii	"ARM1020"
 #ifndef CONFIG_CPU_ICACHE_DISABLE
@@ -491,9 +491,9 @@ cpu_arm1020_name:
 
 	.align
 
-	.section ".proc.info.init", #alloc
+	.section ".proc.info.init", "a"
 
-	.type	__arm1020_proc_info,#object
+	.type __arm1020_proc_info, %object
 __arm1020_proc_info:
 	.long	0x4104a200			@ ARM 1020T (Architecture v5T)
 	.long	0xff0ffff0

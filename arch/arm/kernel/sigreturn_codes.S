@@ -69,7 +69,7 @@ ARM_OK(	.arm	)
 
 	.section .rodata
 	.global sigreturn_codes
-	.type	sigreturn_codes, #object
+	.type sigreturn_codes, %object
 
 	.align
 

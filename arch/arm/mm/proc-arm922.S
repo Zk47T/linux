@@ -374,7 +374,7 @@ ENTRY(cpu_arm922_set_pte_ext)
 #endif /* CONFIG_MMU */
 	ret	lr
 
-	.type	__arm922_setup, #function
+	.type __arm922_setup, %function
 __arm922_setup:
 	mov	r0, #0
 	mcr	p15, 0, r0, c7, c7		@ invalidate I,D caches on v4
@@ -396,7 +396,7 @@ __arm922_setup:
 	 * ..11 0001 ..11 0101
 	 * 
 	 */
-	.type	arm922_crval, #object
+	.type arm922_crval, %object
 arm922_crval:
 	crval	clear=0x00003f3f, mmuset=0x00003135, ucset=0x00001130
 
@@ -412,9 +412,9 @@ arm922_crval:
 
 	.align
 
-	.section ".proc.info.init", #alloc
+	.section ".proc.info.init", "a"
 
-	.type	__arm922_proc_info,#object
+	.type __arm922_proc_info, %object
 __arm922_proc_info:
 	.long	0x41009220
 	.long	0xff00fff0

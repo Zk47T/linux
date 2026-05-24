@@ -424,7 +424,7 @@ ENTRY(cpu_arm925_set_pte_ext)
 #endif /* CONFIG_MMU */
 	ret	lr
 
-	.type	__arm925_setup, #function
+	.type __arm925_setup, %function
 __arm925_setup:
 	mov	r0, #0
 
@@ -461,7 +461,7 @@ __arm925_setup:
 	 * .011 0001 ..11 1101
 	 * 
 	 */
-	.type	arm925_crval, #object
+	.type arm925_crval, %object
 arm925_crval:
 	crval	clear=0x00007f3f, mmuset=0x0000313d, ucset=0x00001130
 
@@ -477,10 +477,10 @@ arm925_crval:
 
 	.align
 
-	.section ".proc.info.init", #alloc
+	.section ".proc.info.init", "a"
 
 .macro arm925_proc_info name:req, cpu_val:req, cpu_mask:req, cpu_name:req, cache
-	.type	__\name\()_proc_info,#object
+	.type __\name\()_proc_info, %object
 __\name\()_proc_info:
 	.long	\cpu_val
 	.long	\cpu_mask

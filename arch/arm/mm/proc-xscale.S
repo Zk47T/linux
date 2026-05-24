@@ -556,7 +556,7 @@ ENTRY(cpu_xscale_do_resume)
 ENDPROC(cpu_xscale_do_resume)
 #endif
 
-	.type	__xscale_setup, #function
+	.type __xscale_setup, %function
 __xscale_setup:
 	mcr	p15, 0, ip, c7, c7, 0		@ invalidate I, D caches & BTB
 	mcr	p15, 0, ip, c7, c10, 4		@ Drain Write (& Fill) Buffer
@@ -579,7 +579,7 @@ __xscale_setup:
 	 * ..11 1.01 .... .101
 	 * 
 	 */
-	.type	xscale_crval, #object
+	.type xscale_crval, %object
 xscale_crval:
 	crval	clear=0x00003b07, mmuset=0x00003905, ucset=0x00001900
 
@@ -610,10 +610,10 @@ xscale_crval:
 
 	.align
 
-	.section ".proc.info.init", #alloc
+	.section ".proc.info.init", "a"
 
 .macro xscale_proc_info name:req, cpu_val:req, cpu_mask:req, cpu_name:req, cache
-	.type	__\name\()_proc_info,#object
+	.type __\name\()_proc_info, %object
 __\name\()_proc_info:
 	.long	\cpu_val
 	.long	\cpu_mask

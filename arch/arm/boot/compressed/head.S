@@ -140,7 +140,7 @@
 #endif
 		.endm
 
-		.section ".start", #alloc, #execinstr
+		.section ".start", "ax"
 /*
  * sort out different calling conventions
  */
@@ -152,7 +152,7 @@
 		 */
  AR_CLASS(	.arm	)
 start:
-		.type	start,#function
+		.type start, %function
 		/*
 		 * These 7 nops along with the 1 nop immediately below for
 		 * !THUMB2 form 8 nops that make the compressed kernel bootable
@@ -636,7 +636,7 @@ not_relocated:	mov	r0, #0
 #endif
 
 		.align	2
-		.type	LC0, #object
+		.type LC0, %object
 LC0:		.word	LC0			@ r1
 		.word	__bss_start		@ r2
 		.word	_end			@ r3
@@ -943,7 +943,7 @@ call_cache_fn:	adr	r12, proc_types
  * defined.
  */
 		.align	2
-		.type	proc_types,#object
+		.type proc_types, %object
 proc_types:
 		.word	0x41000000		@ old ARM ID
 		.word	0xff00f000
@@ -1327,7 +1327,7 @@ __armv3_mpu_cache_flush:
  */
 #ifdef DEBUG
 		.align	2
-		.type	phexbuf,#object
+		.type phexbuf, %object
 phexbuf:	.space	12
 		.size	phexbuf, . - phexbuf
 

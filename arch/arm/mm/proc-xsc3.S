@@ -443,7 +443,7 @@ ENTRY(cpu_xsc3_do_resume)
 ENDPROC(cpu_xsc3_do_resume)
 #endif
 
-	.type	__xsc3_setup, #function
+	.type __xsc3_setup, %function
 __xsc3_setup:
 	mov	r0, #PSR_F_BIT|PSR_I_BIT|SVC_MODE
 	msr	cpsr_c, r0
@@ -479,7 +479,7 @@ __xsc3_setup:
 
 	.size	__xsc3_setup, . - __xsc3_setup
 
-	.type	xsc3_crval, #object
+	.type xsc3_crval, %object
 xsc3_crval:
 	crval	clear=0x04002202, mmuset=0x00003905, ucset=0x00001900
 
@@ -496,10 +496,10 @@ xsc3_crval:
 
 	.align
 
-	.section ".proc.info.init", #alloc
+	.section ".proc.info.init", "a"
 
 .macro xsc3_proc_info name:req, cpu_val:req, cpu_mask:req
-	.type	__\name\()_proc_info,#object
+	.type __\name\()_proc_info, %object
 __\name\()_proc_info:
 	.long	\cpu_val
 	.long	\cpu_mask

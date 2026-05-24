@@ -281,7 +281,7 @@
 #if defined(CONFIG_BIG_LITTLE) && defined(CONFIG_HARDEN_BRANCH_PREDICTOR)
 	.section ".rodata"
 #endif
-	.type	\name\()_processor_functions, #object
+	.type \name\()_processor_functions, %object
 	.align 2
 ENTRY(\name\()_processor_functions)
 	.word	\dabort
@@ -323,7 +323,7 @@ ENTRY(\name\()_processor_functions)
 
 .macro define_cache_functions name:req
 	.align 2
-	.type	\name\()_cache_fns, #object
+	.type \name\()_cache_fns, %object
 ENTRY(\name\()_cache_fns)
 	.long	\name\()_flush_icache_all
 	.long	\name\()_flush_kern_cache_all
@@ -340,7 +340,7 @@ ENTRY(\name\()_cache_fns)
 .endm
 
 .macro define_tlb_functions name:req, flags_up:req, flags_smp
-	.type	\name\()_tlb_fns, #object
+	.type \name\()_tlb_fns, %object
 ENTRY(\name\()_tlb_fns)
 	.long	\name\()_flush_user_tlb_range
 	.long	\name\()_flush_kern_tlb_range
