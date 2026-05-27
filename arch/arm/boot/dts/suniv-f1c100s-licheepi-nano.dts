@@ -29,6 +29,10 @@
 	};
 };
 
+&pio {
+	vcc-pa-supply = <&reg_vcc3v3>;
+};
+
 &mmc0 {
 	vmmc-supply = <&reg_vcc3v3>;
 	bus-width = <4>;
